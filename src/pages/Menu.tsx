@@ -20,8 +20,8 @@ import {
   import About from './About';
   const Menu: React.FC = () => {
     const path = [
-        {name:'Home', url: '/it35-lab/app/Home', icon: homeOutline},
-        {name:'About', url: '/it35-lab/app/About', icon: rocketOutline},
+        {name:'Home', url: '/it35-lab/app/home', icon: homeOutline},
+        {name:'About', url: '/it35-lab/app/about', icon: rocketOutline},
     ]
     return (
         <IonPage>
