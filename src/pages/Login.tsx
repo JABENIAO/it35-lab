@@ -10,7 +10,6 @@ import {
   IonItem, 
   IonLabel, 
   IonList, 
-  IonMenuButton, 
   IonModal, 
   IonPage, 
   IonText, 
@@ -20,7 +19,7 @@ import {
   IonAvatar,
   useIonRouter
 } from '@ionic/react';
-import './Login.css'; // Custom styles
+import './Login.css'; 
 import { useState } from 'react';
 
 const Login: React.FC = () => {
@@ -32,16 +31,28 @@ const Login: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
 
   const doLogin = () => {
-    navigation.push('/it35-lab/app', 'forward', 'replace');
-  }
+   
+    if (!email || !password || email.trim() === '' || password.trim() === '') {
+      alert('Please enter both email and password.');
+      return; 
+    }
+  
+    
+    if (email.match(/[A-Za-z0-9]/) && password.match(/[A-Za-z0-9]/)) {
+      navigation.push('/it35-lab/app', 'forward', 'replace');
+    } else {
+      alert('Invalid email or password. Please try again.');
+    }
+  };
+  
 
   const doRegister = () => {
-    setShowToast(true); // Placeholder for successful registration
-  }
+    setShowToast(true);  
+  };
 
   const closeModal = () => {
     setShowModal(false);
-  }
+  };
 
   return (
     <IonPage>
@@ -63,11 +74,12 @@ const Login: React.FC = () => {
                 />
               </IonAvatar>
 
-              {/* Username field */}
+              {/* Email input field */}
               <IonInput 
-                label="Username" 
-                value={username}
-                onIonChange={(e) => setUsername(e.detail.value!)}
+                type="email" 
+                label="Email" 
+                value={email}
+                onIonChange={(e) => setEmail(e.detail.value!)} 
               />
               
               {/* Password field */}
@@ -75,7 +87,7 @@ const Login: React.FC = () => {
                 type="password" 
                 label="Password" 
                 value={password}
-                onIonChange={(e) => setPassword(e.detail.value!)}
+                onIonChange={(e) => setPassword(e.detail.value!)} 
               >
                 <IonInputPasswordToggle slot="end" />
               </IonInput>
@@ -84,7 +96,7 @@ const Login: React.FC = () => {
               </IonButton>
 
               <IonButton className="login-button" onClick={() => setShowModal(true)} expand="full" color="secondary">
-                "Don't have an account? Register here"
+               SIGN UP 
               </IonButton>
             </IonCardContent>
           </IonCard>
