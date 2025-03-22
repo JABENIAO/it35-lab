@@ -24,7 +24,7 @@ import { searchCircle } from 'ionicons/icons';
         <IonContent fullscreen>
         <>
       
-      <IonSearchbar searchIcon={searchCircle} placeholder="Custom Search Icon"></IonSearchbar>
+      <IonSearchbar searchIcon={searchCircle} placeholder="Search here!"></IonSearchbar>
     </>
         <div
           style={{

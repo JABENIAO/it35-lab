@@ -1,31 +1,47 @@
 import { 
   IonButton,
+  IonButtons,
+  IonCard,
+  IonCardContent,
   IonContent, 
   IonHeader, 
   IonInput, 
+  IonInputPasswordToggle, 
   IonItem, 
   IonLabel, 
+  IonList, 
+  IonMenuButton, 
+  IonModal, 
   IonPage, 
+  IonText, 
   IonTitle, 
-  IonToolbar, 
+  IonToast, 
+  IonToolbar,
+  IonAvatar,
   useIonRouter
 } from '@ionic/react';
+import './Login.css'; // Custom styles
 import { useState } from 'react';
 
 const Login: React.FC = () => {
   const navigation = useIonRouter();
+  const [showModal, setShowModal] = useState(false);
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showToast, setShowToast] = useState(false);
 
   const doLogin = () => {
-    console.log('Username:', username);
-    console.log('Password:', password);
     navigation.push('/it35-lab/app', 'forward', 'replace');
-  };
+  }
 
-  const doSignup = () => {
-    navigation.push('/Register', 'forward', 'replace'); 
-  };
+  const doRegister = () => {
+    setShowToast(true); // Placeholder for successful registration
+  }
+
+  const closeModal = () => {
+    setShowModal(false);
+  }
 
   return (
     <IonPage>
@@ -34,86 +50,97 @@ const Login: React.FC = () => {
           <IonTitle>Login</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent 
-        fullscreen 
-        className="ion-padding" 
-        style={{ backgroundColor: '#f4f4f4' }}
-      >
-        <div 
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh', 
-            width: '100%',
-          }}
-        >
-          <div 
-            style={{
-              width: '90%',
-              maxWidth: '400px',
-              padding: '20px',
-              background: 'white',
-              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
-              borderRadius: '10px',
-              textAlign: 'center'
-            }}
-          >
-            {/* Welcome text with animation */}
-            <h2 
-              style={{
-                marginBottom: '30px', 
-                color: '#333', 
-                fontWeight: 'bold', 
-                animation: 'fadeIn 2s ease-in-out'
-              }}
-            >
-              Welcome
-            </h2>
-            <IonItem style={{ marginBottom: '15px' }}>
-              <IonLabel position="floating">Username</IonLabel>
+
+      <IonContent className="login-background">
+        <div className="login-container">
+          <IonCard className="login-card">
+            <IonCardContent>
+              {/* Centered Ionic Avatar for logo */}
+              <IonAvatar className="app-icon">
+                <img 
+                  src="https://www.geekandjob.com/uploads/wiki/f6977cfa0930098d4dcfa71f9c140b06.png"
+                  alt="App Icon"
+                />
+              </IonAvatar>
+
+              {/* Username field */}
               <IonInput 
-                value={username} 
-                onIonChange={e => setUsername(e.detail.value!)} 
-                clearInput
+                label="Username" 
+                value={username}
+                onIonChange={(e) => setUsername(e.detail.value!)}
               />
-            </IonItem>
-            <IonItem style={{ marginBottom: '15px' }}>
-              <IonLabel position="floating">Password</IonLabel>
+              
+              {/* Password field */}
               <IonInput 
                 type="password" 
+                label="Password" 
                 value={password}
-                onIonChange={(e) => setPassword(e.detail.value!)}  
-                clearOnEdit
-              />
-            </IonItem>
-            <IonButton 
-              onClick={doLogin} 
-              expand="full"
-              style={{
-                marginTop: '15px',
-                backgroundColor: '#3880ff',
-                borderRadius: '5px'
-              }}
-            >
-              Login
-            </IonButton>
-            <IonButton 
-              onClick={doSignup} 
-              expand="full"
-              style={{
-                marginTop: '15px',
-                backgroundColor: '#28a745',
-                borderRadius: '5px'
-              }}
-            >
-              Signup
-            </IonButton>
-          </div>
+                onIonChange={(e) => setPassword(e.detail.value!)}
+              >
+                <IonInputPasswordToggle slot="end" />
+              </IonInput>
+              <IonButton className="login-button" onClick={doLogin} expand="full">
+                Login
+              </IonButton>
+
+              <IonButton className="login-button" onClick={() => setShowModal(true)} expand="full" color="secondary">
+                "Don't have an account? Register here"
+              </IonButton>
+            </IonCardContent>
+          </IonCard>
         </div>
+
+        <IonToast
+          isOpen={showToast}
+          onDidDismiss={() => setShowToast(false)}
+          message="Registration Successful!"
+          duration={2000}
+        />
+
+        <IonModal isOpen={showModal} onDidDismiss={closeModal} className="registration-modal">
+          <IonContent className="ion-padding">
+            <IonHeader>
+              <IonToolbar>
+                <IonTitle>Register</IonTitle>
+                <IonButtons slot="end">
+                  <IonButton onClick={closeModal}>Close</IonButton>
+                </IonButtons>
+              </IonToolbar>
+            </IonHeader>
+            <IonList>
+              <IonItem>
+                <IonLabel position="floating">Username</IonLabel>
+                <IonInput 
+                  value={username}
+                  onIonChange={(e) => setUsername(e.detail.value!)} 
+                />
+              </IonItem>
+              <IonItem>
+                <IonLabel position="floating">Email</IonLabel>
+                <IonInput 
+                  value={email}
+                  onIonChange={(e) => setEmail(e.detail.value!)} 
+                />
+              </IonItem>
+              <IonItem>
+                <IonLabel position="floating">Password</IonLabel>
+                <IonInput 
+                  type="password"
+                  value={password}
+                  onIonChange={(e) => setPassword(e.detail.value!)} 
+                >
+                  <IonInputPasswordToggle slot="end" />
+                </IonInput>
+              </IonItem>
+            </IonList>
+            <IonButton expand="full" onClick={doRegister}>
+              Register
+            </IonButton>
+          </IonContent>
+        </IonModal>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Login;  
+export default Login;
