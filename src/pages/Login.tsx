@@ -10,7 +10,7 @@ import {
   IonToast,  
   useIonRouter
 } from '@ionic/react';
-import { logoIonic } from 'ionicons/icons';
+import { logoTwitter } from 'ionicons/icons'; // Changed to Twitter icon
 import { useState } from 'react';
 import { supabase } from '../utils/supabaseClient';
 
@@ -71,18 +71,38 @@ const Login: React.FC = () => {
               marginBottom: '20px'
             }}
           >
-            <IonAvatar
-              style={{
-                width: '120px',
-                height: '120px',
-                marginBottom: '10px'
-              }}
-            >
-              <IonIcon 
-                icon={logoIonic}
-                style={{ fontSize: '100px', color: '#007bff' }} 
-              />
-            </IonAvatar>
+           <IonAvatar
+  style={{
+    width: '120px',
+    height: '120px',
+    marginBottom: '20px', // slightly more spacing
+    overflow: 'hidden',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }}
+>
+  <img 
+    src="https://abs.twimg.com/icons/apple-touch-icon-192x192.png" 
+    alt="Twitter Logo"
+    style={{
+      width: '100px',
+      height: '100px',
+      animation: 'float 2s ease-in-out infinite'
+    }}
+  />
+</IonAvatar>
+
+<style>
+  {`
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
+    }
+  `}
+</style>
+
             <h1 style={{ margin: '0', fontWeight: 'bold' }}>USER LOGIN</h1>
           </div>
 
