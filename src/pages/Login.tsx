@@ -88,7 +88,7 @@ const Login: React.FC = () => {
     style={{
       width: '100px',
       height: '100px',
-      animation: 'float 2s ease-in-out infinite'
+      animation: 'float 1s ease-in-out infinite'
     }}
   />
 </IonAvatar>
