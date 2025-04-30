@@ -1,16 +1,16 @@
-import { 
+import {
     IonButtons,
     IonCard,
     IonCardContent,
     IonCardHeader,
     IonCardTitle,
     IonCardSubtitle,
-    IonContent, 
-    IonHeader, 
-    IonMenuButton, 
-    IonPage, 
-    IonTitle, 
-    IonToolbar 
+    IonContent,
+    IonHeader,
+    IonMenuButton,
+    IonPage,
+    IonTitle,
+    IonToolbar
 } from '@ionic/react';
 
 const About: React.FC = () => {
@@ -25,60 +25,74 @@ const About: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
 
-            <IonContent fullscreen>
-                <IonCard>
-                    {/* Profile Image */}
-                    <img
-                        alt="Silhouette of mountains"
-                        src="https://scontent.fdvo1-1.fna.fbcdn.net/v/t39.30808-6/419172627_3722116908110720_3435621069034907359_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFx3lUk0dXY9cSC6tgQwCLr1-30xmXJYpvX7fTGZclim6hlPGPLob_Gtr99F_g0rjoJo3Px6i5QQ8d3PGanCuY8&_nc_ohc=9rD5m8uzUeIQ7kNvgEvTVqc&_nc_oc=AdiWzwtKU2kRTlBQ8ZX8oWZ72khEnCfDmuyj6RCAQJ9XYbrNWF262YQ2W0cgrPzyuMU&_nc_zt=23&_nc_ht=scontent.fdvo1-1.fna&_nc_gid=AhPToOr1SPxqWIWWIqvd7kZ&oh=00_AYE0wptANV0aDILkTuUllFfghaKyvdOPulgJMczJFt5D_Q&oe=67D1132C"
-                        style={{ width: "100%" }}
-                    />
+            <IonContent fullscreen style={{ backgroundColor: '#d0f0c0' }}>
+            <IonCard>
+    {/* Full Width Header Image */}
+    <img
+        alt="Profile Banner"
+        src="https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/487119782_4082723215383419_7980983998449219994_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeFL6rHL3bGdRKV4AnbgCawRdKj-5y3JkNh0qP7nLcmQ2BOFRDGrYbrRK6hGVrpMuUgN7wBRt5LONIIzygxXink4&_nc_ohc=3k9Xyvv9n0sQ7kNvwFkREh3&_nc_oc=AdkGzUJjrpuuwAprXU0gRv1_LSXUDiX8ZPytuTrr6A3BtQZ1xwrpQfRG0bHZR_eELeYzLYfgQfGkM2PqdZiOTH0Q&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=KXoqlzxTMsVXQFbs6bc3cg&oh=00_AfFUZuHEDoaoW-ta_uCnUhHHfa1BB6U-XPwOocadkX7nzA&oe=680BF2B3"
+        style={{ width: "100%", borderTopLeftRadius: "8px", borderTopRightRadius: "8px" }}
+    />
+
+    <IonCardHeader style={{ textAlign: "center" }}>
+        {/* Avatar Image */}
+        <img
+            src="https://static.vecteezy.com/system/resources/previews/002/275/847/original/male-avatar-profile-icon-of-smiling-caucasian-man-vector.jpg"
+            style={{
+                width: "100px",
+                height: "100px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                border: "3px solid white",
+                marginTop: "-50px",
+                backgroundColor: "#ffffff"
+            }}
+        />
+
+        <IonCardTitle style={{ fontSize: "22px", fontWeight: "bold", marginTop: "10px" }}>
+            👨‍💻 JEBBIE A. JABENIAO
+        </IonCardTitle>
+        <IonCardSubtitle>✨ a.k.a. BAJEB ✨</IonCardSubtitle>
+    </IonCardHeader>
 
                     <IonCardHeader>
-                        <IonCardTitle>JEBBIE A. JABENIAO</IonCardTitle>
-                        <IonCardSubtitle>BAJEB</IonCardSubtitle>
+                        <IonCardTitle style={{ fontSize: "22px", fontWeight: "bold" }}>👨‍💻 JEBBIE A. JABENIAO</IonCardTitle>
+                        <IonCardSubtitle>✨ a.k.a. BAJEB ✨</IonCardSubtitle>
                     </IonCardHeader>
 
-                    <IonCardContent>
-                        "Jebbie A. Jabeniao: A true embodiment of loyalty and dedication. Never late, always hard at work, and though stress may come his way."
+                    <IonCardContent style={{ fontStyle: 'italic', textAlign: 'center' }}>
+                        "A true embodiment of loyalty and dedication. Never late, always hard work."
                     </IonCardContent>
 
                     {/* Skills Section */}
                     <IonCardContent>
-                        <h3 style={{ color: "brown" }}>Skills</h3>
+                        <h3 style={{ color: "brown" }}>🛠️ Skills</h3>
                         <ul style={{ textAlign: "left", paddingLeft: "20px", color: "black" }}>
-                            <li>Designer</li>
-                            <li>PRORAMER KONOHAY</li>
-                            <li>Encoder</li>
+                            <li>🎨 Designer</li>
+                            <li>💻 Programmer (CHAR RA JUD)</li>
+                            <li>⌨️ Encoder</li>
                         </ul>
                     </IonCardContent>
 
                     {/* Talents Section */}
                     <IonCardContent>
-                        <h3 style={{ color: "brown" }}>Talents</h3>
+                        <h3 style={{ color: "brown" }}>🎯 Talents</h3>
                         <ul style={{ textAlign: "left", paddingLeft: "20px", color: "black" }}>
-                            <li>Basketball</li>
-                            <li>Gaming</li>
+                            <li>🏀 Basketball</li>
+                            <li>🎮 Gaming</li>
                         </ul>
                     </IonCardContent>
 
-                    
+                    {/* Likes Section */}
                     <IonCardContent>
-                        <h3 style={{ color: "brown" }}>LIKES</h3>
+                        <h3 style={{ color: "brown" }}>❤️ Likes</h3>
                         <ul style={{ textAlign: "left", paddingLeft: "20px", color: "black" }}>
-                            <li>TRAVEL</li>
+                            <li>✈️ Travel</li>
                         </ul>
 
-                    
-                        <img
-                            alt="Hiking"
-                            src="https://scontent.fmnl4-4.fna.fbcdn.net/v/t39.30808-6/419402193_3722117024777375_6298772256135499202_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEX9NWCHFkv4h0-CkZ2JUI7fS1aq8W4J4h9LVqrxbgniLxbxDCRWzi43LDCF7x7o3QHiKxvcmUiizUhv8ZNF0dp&_nc_ohc=B_X5TkC-bi8Q7kNvgFQbZbW&_nc_oc=AdiFkAGrQCGVhoVGRJpCOmtXNEiebpUKs_90O_BCfHyENaKi5dSE6oIn97ZF497zbzY&_nc_zt=23&_nc_ht=scontent.fmnl4-4.fna&_nc_gid=A_JHtIQrBlA_rwXXhxlgzjQ&oh=00_AYFcPUpSDujWgLmHRsmRFqaaxmCBczIYa-rvfmFNsCmbhA&oe=67D12C8B"
-                            style={{
-                                width: "100%",
-                                borderRadius: "8px",
-                                marginTop: "10px"
-                            }}
-                        />
+                      
+                            
+                        
                     </IonCardContent>
                 </IonCard>
             </IonContent>
